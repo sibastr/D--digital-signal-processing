@@ -18,15 +18,16 @@ gauss_ref = exp(-(x/sigma).^2);
 rect_ref = zeros(size(x));
 rect_ref(abs(x) - tt < 0) = 1;
 
-
-
 % Signal restore (
 gauss_restored = zeros(1, length(x));
 rect_restored = zeros(1, length(x));
 for i=1:length(x)
    for j = 1:n
-       gauss_restored(i) = gauss_restored(i) + gauss_discrete(j)*sinc((x(i)-t(j))/dt);
-       rect_restored(i) = rect_restored(i) + rect_discrete(j)*sinc((x(i)-t(j))/dt);
+       % gauss_restored(i) = gauss_restored(i) + gauss_discrete(j)*sinc((x(i)-t(j))/dt);
+       % sin(x*pi)./(x*pi)
+       gauss_restored(i) = gauss_restored(i) + gauss_discrete(j)* sin((x(i)-t(j))/dt * pi) / ((x(i)-t(j))/dt * pi);
+       % rect_restored(i) = rect_restored(i) + rect_discrete(j)*sinc((x(i)-t(j))/dt);
+       rect_restored(i) = rect_restored(i) + rect_discrete(j)*sin((x(i)-t(j))/dt * pi) / ((x(i)-t(j))/dt * pi);
    end
 end
 

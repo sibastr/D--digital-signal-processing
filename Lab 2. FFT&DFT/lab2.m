@@ -7,7 +7,7 @@ sigma = 0.5;
 
 % Borders of calculation
 delta = 5;
-t = -delta:0.05:delta;
+t = -delta:0.1:delta;
 
 % Calculation of pulse functions
 x1 = zeros(size(t));
@@ -38,47 +38,47 @@ z_gauss_without_twin = fftshift(z_gauss);
 xs = 0:length(t)-1;
 
 figure (1);
-subplot(2,1,1);
+subplot(1,1,1);
 plot(xs, y_rec,xs,abs(y_rec_without_twin)/length(xs));
 title('FFT: amplitude spectrum of rectangle pulse');
 legend('With "twin" effect','Without "twin" effect');
-subplot(2,1,2);
-plot(xs,angle(y_rec)/length(xs),xs,angle(y_rec_without_twin)/length(xs));
-title('FFT: phase spectrum of rectangle pulse');
-legend('With "twin" effect','Without "twin" effect');
+%subplot(2,1,2);
+%plot(xs,angle(y_rec)/length(xs),xs,angle(y_rec_without_twin)/length(xs));
+%title('FFT: phase spectrum of rectangle pulse');
+%legend('With "twin" effect','Without "twin" effect');
 print -dpng plot2_1.png;
 
 figure (2);
-subplot(2,1,1);
+subplot(1,1,1);
 plot(xs,abs(y_gauss)/length(xs),xs,abs(y_gauss_without_twin)/length(xs));
 title('FFT: amplitude spectrum of gaussian pulse');
 legend('With "twin" effect','Without "twin" effect');
-subplot(2,1,2);
-plot(xs,angle(y_gauss)/length(xs),xs,angle(y_gauss_without_twin)/length(xs));
-title('FFT: phase spectrum of gaussian pulse');
-legend('With "twin" effect','Without "twin" effect');
+%subplot(2,1,2);
+%plot(xs,angle(y_gauss)/length(xs),xs,angle(y_gauss_without_twin)/length(xs));
+%title('FFT: phase spectrum of gaussian pulse');
+%legend('With "twin" effect','Without "twin" effect');
 print -dpng plot2_2.png;
 
 figure (3);
-subplot(2,1,1);
+subplot(1,1,1);
 plot(xs,abs(z_rec)/length(xs),xs,abs(z_rec_without_twin)/length(xs));
 title('DFT: amplitude spectrum of rectangle pulse');
 legend('With "twin" effect','Without "twin" effect');
-subplot(2,1,2);
-plot(xs,angle(z_rec)/length(xs),xs,angle(z_rec_without_twin)/length(xs));
-title('DFT: phase spectrum of rectangle pulse');
-legend('With "twin" effect','Without "twin" effect');
+%subplot(2,1,2);
+%plot(xs,angle(z_rec)/length(xs),xs,angle(z_rec_without_twin)/length(xs));
+%title('DFT: phase spectrum of rectangle pulse');
+%legend('With "twin" effect','Without "twin" effect');
 print -dpng plot2_3.png;
 
 figure (4);
-subplot(2,1,1);
-plot(xs,abs(z_gauss)/length(xs),xs,abs(zg2)/length(xs));
+subplot(1,1,1);
+plot(xs,abs(z_gauss)/length(xs),xs,abs(z_gauss_without_twin)/length(xs));
 title('DFT: amplitude spectrum of gaussian pulse');
 legend('With "twin" effect','Without "twin" effect');
-subplot(2,1,2);
-plot(xs,angle(z_gauss)/length(xs),xs,angle(zg2)/length(xs));
-title('DFT: phase spectrum of gaussian pulse');
-legend('With "twin" effect','Without "twin" effect');
+%subplot(2,1,2);
+%plot(xs,angle(z_gauss)/length(xs),xs,angle(z_gauss_without_twin)/length(xs));
+%title('DFT: phase spectrum of gaussian pulse');
+%legend('With "twin" effect','Without "twin" effect');
 print -dpng plot2_4.png;
 
 end

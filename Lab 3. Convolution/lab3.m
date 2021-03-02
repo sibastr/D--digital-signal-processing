@@ -34,19 +34,19 @@ y3 = y3(start+1:start+length(t));
 figure(1)
 plot(t,x1(1:201),t,x2(1:201),t,y1);
 title('Rectangular and Gaussian convolution');
-legend('Pulse 1','Pulse 2','Convolution');
+legend('Rectangular','Gaussian','Convolution');
 print -dpng plot3_1.png;
 
 figure(2)
 plot(t,x1(1:201),t,x3(1:201),t,y2);
 title('Two Rectangular convolution');
-legend('Pulse 1','Pulse 2','Convolution');
+legend('Rectangular 1','Rectangular 2','Convolution');
 print -dpng plot3_2.png;
 
 figure(3)
 plot(t,x2(1:201),t,x4(1:201),t,y3);
 title('Two Gaussian convolution');
-legend('Pulse 1','Pulse 2','Convolution');
+legend('Gaussian 1','Gaussian 2','Convolution');
 print -dpng plot3_3.png;
 
 end
